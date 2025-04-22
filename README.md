@@ -30,3 +30,17 @@ Each `.tsv` file has the format:
 ### 2. Install dependencies:
 ```bash
 pip install numpy pandas tensorflow nltk
+
+# Seq2Seq Model for Translation Using Keras
+
+This project implements a Sequence-to-Sequence (Seq2Seq) model using TensorFlow and Keras. It is designed to translate sentences from a source language to a target language using an encoder-decoder architecture with LSTM layers.
+
+## Features
+
+- Encoder-Decoder architecture with LSTM layers
+- Tokenization and padding for input preprocessing
+- One-hot encoding for output targets
+- Model training with validation split
+- Final evaluation on test data
+
+## Project Structure
