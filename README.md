@@ -24,23 +24,98 @@ Each `.tsv` file has the format:
 
 ---
 
-## 🛠️ Setup Instructions
+## Run the model training and evaluation:
+```
+python marathi_transliteration_seq2seq.py
+```
+## Code Structure
+-load_data(path): Loads and cleans TSV files
 
-### 1. Clone the repository (or use your script directly)
-### 2. Install dependencies:
-```bash
-pip install numpy pandas tensorflow nltk
+-encode_sequences(): Tokenizes, encodes, and pads sequences
 
-# Seq2Seq Model for Translation Using Keras
+-build_seq2seq_model(): Constructs the encoder-decoder architecture
 
-This project implements a Sequence-to-Sequence (Seq2Seq) model using TensorFlow and Keras. It is designed to translate sentences from a source language to a target language using an encoder-decoder architecture with LSTM layers.
+-decode_sequence(input_seq): Transliterates test samples
 
-## Features
 
-- Encoder-Decoder architecture with LSTM layers
-- Tokenization and padding for input preprocessing
-- One-hot encoding for output targets
-- Model training with validation split
-- Final evaluation on test data
+# 🎤 GPT-2 English Lyrics Generator
 
-## Project Structure
+This repository contains an implementation to **fine-tune GPT-2** using Hugging Face Transformers to generate English song lyrics. It leverages datasets of English poetry and lyrics and trains a language model that generates creative, rhyming, and song-like text.
+
+---
+
+## 📁 Dataset
+
+We use English poetry/lyrics datasets to train the model. Recommended datasets include:
+
+- 🔗 [Kaggle - Poetry by Paul Mooney](https://www.kaggle.com/paultimothymooney/poetry)
+- 🔗 [Lyrics on Data.World](https://data.world/datasets/lyrics)
+
+Once downloaded, extract and organize the data into a folder like `./dataset/`, ensuring the file contains lines or entries of lyrics (preferably a `.txt` or `.csv` file with a `text` column).
+
+Example:
+```text
+I saw the stars align above the sea  
+Dancing lights and your eyes on me
+```
+# 🛠️ Setup Instructions
+## 1. Clone the repository
+bash
+Copy
+Edit
+```
+git clone https://github.com/yourusername/gpt2-lyrics-generator.git
+cd gpt2-lyrics-generator
+
+```
+
+## 2. Install dependencies
+-bash
+-Copy
+-Edit
+```
+pip install -r requirements.txt
+```
+requirements.txt should contain:
+
+-nginx
+-Copy
+-Edit
+-transformers
+-datasets
+-torch
+-huggingface_hub
+## 3. Hugging Face Authentication
+Generate a token from https://huggingface.co/settings/tokens and choose Models access.
+
+Then run:
+```
+bash
+Copy
+Edit
+huggingface-cli login
+Paste your token when prompted.
+```
+
+🧠 Model Training
+To fine-tune GPT-2 on the lyrics dataset:
+```
+bash
+Copy
+Edit
+python train.py
+```
+# This script will:
+
+-Load the gpt2 model and tokenizer
+
+-Tokenize your lyrics dataset
+
+-Fine-tune the model
+
+-Save the model to ./gpt2-lyrics/
+
+
+
+
+
